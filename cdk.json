@@ -1,0 +1,3 @@
+{
+  "app": "npx ts-node bin/cdk-transit-gateway-example.ts"
+}
