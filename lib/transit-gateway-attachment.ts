@@ -27,6 +27,10 @@ export interface TransitGatewayAttachmentAttributes {
   transitGatewayAttachmentId: string;
 }
 
+/**
+ *
+ * @resource AWS::EC2::TransitGatewayAttachment
+ */
 export class TransitGatewayAttachment extends TransitGatewayAttachmentBase {
   public readonly transitGatewayAttachmentId: string;
   public readonly transitGatewayId: string;
@@ -41,7 +45,9 @@ export class TransitGatewayAttachment extends TransitGatewayAttachmentBase {
   }
 
   constructor(scope: cdk.Construct, id: string, props: TransitGatewayAttachmentProps) {
-    super(scope, id);
+    super(scope, id, {
+      physicalName: ''
+    });
 
     const attachment = new ec2.CfnTransitGatewayAttachment(this, `TgwAttachment`, {
       vpcId: props.vpc.vpcId,

@@ -58,7 +58,7 @@ export class TransitGateway extends cdk.Construct implements ITransitGateway {
         destinationCidrBlock: '10.0.0.0/16',
         transitGatewayId: att.transitGatewayId
       });
-      // route.addDependsOn(att)
+      route.node.addDependency(att);
     });
 
     return att
